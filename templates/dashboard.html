@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Email Scheduler Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Roboto', sans-serif; text-align: center;}
+        form { max-width: 600px; margin: 20px auto; padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        input, textarea { width: 100%; margin-bottom: 20px; padding: 10px; }
+        button { padding: 10px 20px; background-color: #4285F4; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background-color: #357ae8; }
+        p { margin-top: 0; }
+    </style>
+</head>
+<body>
+    <h1>Email Scheduler Dashboard</h1>
+    <p>Logged in as: {{ email }} | <a href="{{ url_for('logout') }}">Logout</a></p>
+    
+    <h2>Schedule an Email</h2>
+    <form method="POST" action="{{ url_for('index') }}">
+        <input type="hidden" name="email_to" value="{{ email }}">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Your message here..." required></textarea>
+        <label for="send_time">Send Time</label>
+        <input type="datetime-local" id="send_time" name="send_time" required>
+        <button type="submit">Schedule Email</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,8 @@
+Flask==3.1.0
+authlib==1.4.0
+gunicorn==20.1.0
+psycopg2-binary==2.9.3
+requests
+sendgrid==6.9.1
+google-cloud-logging==2.7.0
+google-cloud-monitoring==2.5.0
